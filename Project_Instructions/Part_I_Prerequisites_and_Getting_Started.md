@@ -265,4 +265,15 @@ setx AWS_REGION us-east-1
 setx AWS_PROFILE default
 setx JWT_SECRET hello
 setx URL http://localhost:8100
+
+
+export POSTGRES_USERNAME=admin
+export POSTGRES_PASSWORD=admin
+export POSTGRES_HOST=localhost
+export POSTGRES_DB=dbesiea
+export AWS_BUCKET=udagram-esiea-zi
+export AWS_REGION=us-east-1
+export AWS_PROFILE=default
+export JWT_SECRET=testing
+export URL=http://localhost:8100
 ```

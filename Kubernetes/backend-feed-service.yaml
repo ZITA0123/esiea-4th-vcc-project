@@ -3,9 +3,10 @@ kind: Service
 metadata:
   name: backend-feed-service
 spec:
+  type: ClusterIP
   selector:
-    app: backend
+    app: backend-feed
   ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 8080
+  - name: backend-feed-port
+    port: 3000
+    targetPort: 3000

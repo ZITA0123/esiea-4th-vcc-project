@@ -2,22 +2,28 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: reverseproxy-deployment
-  labels:
-    app: backend
 spec:
+  replicas: 2
   selector:
     matchLabels:
-      app: backend
-  replicas: 3
-  strategy:
-    type: RollingUpdate
+      app: reverseproxy
   template:
     metadata:
       labels:
-        app: backend
+        app: reverseproxy
     spec:
       containers:
-       —name: reverseproxy-container
-          image: docker.io/gnekouzita/reverseproxy
-          ports:
-           —containerPort: 8080
+      - name: reverseproxy
+        image: gnekouzita/reverseproxy
+        ports:
+        - containerPort: 8080
+        env:
+        - name: PROXY_URL
+          value: http://localhost:8100
+
+
+
+
+
+
+

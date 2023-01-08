@@ -1,23 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend-deployment
-  labels:
-    app: frontend
+  name: frontend-app
 spec:
+  replicas: 2
   selector:
     matchLabels:
-      app: frontend
-  replicas: 3
-  strategy:
-    type: RollingUpdate
+      app: frontend-app
   template:
     metadata:
       labels:
-        app: frontend
+        app: frontend-app
     spec:
       containers:
-       —name: frontend-container
-          image: docker.io/gnekouzita/udagram-frontend
-          ports:
-           —containerPort: 80
+      - name: frontend-app
+        image: gnekouzita/udagram-frontend
+        ports:
+        - containerPort: 8100
+        
